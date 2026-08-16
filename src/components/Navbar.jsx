@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { MapPin, Volume2, VolumeX, Menu as MenuIcon, X } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 export default function Navbar({ soundEnabled, setSoundEnabled }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,21 +14,6 @@ export default function Navbar({ soundEnabled, setSoundEnabled }) {
       } else {
         setScrolled(false);
       }
-
-      const sections = ['home', 'about', 'signature', 'menu', 'gallery', 'location', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -36,49 +21,48 @@ export default function Navbar({ soundEnabled, setSoundEnabled }) {
   }, []);
 
   const navLinks = [
-    { name: 'HOME', href: '#home', id: 'home' },
-    { name: 'ABOUT', href: '#about', id: 'about' },
-    { name: 'SIGNATURE', href: '#signature', id: 'signature' },
-    { name: 'MENU', href: '#menu', id: 'menu' },
-    { name: 'GALLERY', href: '#gallery', id: 'gallery' },
-    { name: 'LOCATION', href: '#location', id: 'location' },
-    { name: 'CONTACT', href: '#contact', id: 'contact' },
+    { name: 'HOME', path: '/' },
+    { name: 'ABOUT', path: '/about' },
+    { name: 'SIGNATURE', path: '/signature' },
+    { name: 'MENU', path: '/menu' },
+    { name: 'GALLERY', path: '/gallery' },
+    { name: 'LOCATION', path: '/location' },
+    { name: 'CONTACT', path: '/contact' },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'py-3.5 bg-[#F4F0E8] border-b border-[#E2D9C8] shadow-md'
-          : 'py-4 bg-[#F4F0E8]/95 border-b border-[#E2D9C8]/60 shadow-sm'
+          ? 'py-3.5 bg-[#F4F0E8]/95 backdrop-blur-md border-b border-[#E2D9C8] shadow-md'
+          : 'py-4 bg-[#F4F0E8]/90 backdrop-blur-sm border-b border-[#E2D9C8]/60 shadow-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* BRAND LOGO */}
-          <a href="#home">
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
             <BrandLogo variant="light" size="normal" />
-          </a>
+          </Link>
 
           {/* DESKTOP NAVIGATION LINKS */}
           <div className="hidden lg:flex items-center gap-1 neu-inset px-2.5 py-1.5 rounded-full">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`px-4 py-1.5 text-[11px] tracking-wider uppercase rounded-full font-bold transition-all duration-200 ${
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                className={({ isActive }) =>
+                  `px-4 py-1.5 text-[11px] tracking-wider uppercase rounded-full font-bold transition-all duration-200 ${
                     isActive
                       ? 'bg-[#5E3E29] text-white shadow-md'
                       : 'text-[#5C4E43] hover:text-[#1F1813] hover:bg-white/60'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              );
-            })}
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
           </div>
 
           {/* RIGHT ACTIONS */}
@@ -87,7 +71,7 @@ export default function Navbar({ soundEnabled, setSoundEnabled }) {
             <button
               onClick={() => setSoundEnabled(!soundEnabled)}
               title={soundEnabled ? "Mute Ambient Sound" : "Enable Ambient Sound"}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-full neu-button text-[#5E3E29] text-[11px] font-mono font-bold"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-full neu-button text-[#5E3E29] text-[11px] font-mono font-bold hover:scale-105 transition-all"
             >
               {soundEnabled ? (
                 <>
@@ -108,13 +92,13 @@ export default function Navbar({ soundEnabled, setSoundEnabled }) {
             </button>
 
             {/* VISIT US CTA */}
-            <a
-              href="#location"
+            <Link
+              to="/location"
               className="px-5 py-2 rounded-full bg-[#8C6234] hover:bg-[#5E3E29] text-white font-bold text-[11px] tracking-wider uppercase shadow-md hover:scale-105 transition-all flex items-center gap-1.5"
             >
               <MapPin className="w-3.5 h-3.5" />
               <span>VISIT US</span>
-            </a>
+            </Link>
           </div>
 
           {/* MOBILE MENU BUTTON */}
@@ -140,26 +124,28 @@ export default function Navbar({ soundEnabled, setSoundEnabled }) {
       {mobileMenuOpen && (
         <div className="md:hidden mt-3 mx-4 p-5 rounded-2xl bg-[#F4F0E8] border border-[#E2D9C8] shadow-2xl flex flex-col gap-2">
           {navLinks.map((link) => (
-            <a
+            <NavLink
               key={link.name}
-              href={link.href}
+              to={link.path}
               onClick={() => setMobileMenuOpen(false)}
-              className={`px-4 py-2.5 rounded-xl text-xs tracking-wider uppercase transition-colors font-bold ${
-                activeSection === link.id
-                  ? 'bg-[#5E3E29] text-white'
-                  : 'text-[#5C4E43] hover:text-[#1F1813] hover:bg-[#EBE5DA]'
-              }`}
+              className={({ isActive }) =>
+                `px-4 py-2.5 rounded-xl text-xs tracking-wider uppercase transition-colors font-bold ${
+                  isActive
+                    ? 'bg-[#5E3E29] text-white shadow-sm'
+                    : 'text-[#5C4E43] hover:text-[#1F1813] hover:bg-[#EBE5DA]'
+                }`
+              }
             >
               {link.name}
-            </a>
+            </NavLink>
           ))}
-          <a
-            href="#location"
+          <Link
+            to="/location"
             onClick={() => setMobileMenuOpen(false)}
             className="mt-2 text-center py-3 rounded-xl bg-[#8C6234] text-white font-bold text-xs uppercase tracking-wider shadow-md"
           >
             VISIT US
-          </a>
+          </Link>
         </div>
       )}
     </nav>

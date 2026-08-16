@@ -63,7 +63,7 @@ export default function MenuModal({ item, onClose }) {
 
           {/* DETAILS GRID */}
           {item.details && (
-            <div className="grid grid-cols-2 gap-4 p-5 rounded-2xl neu-inset font-mono text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl neu-inset font-mono text-xs">
               {item.details.origin && (
                 <div>
                   <span className="text-[#5C4E43] text-[10px] block font-bold">ORIGIN</span>

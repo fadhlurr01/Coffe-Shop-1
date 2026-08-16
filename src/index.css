@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html, body {
     scroll-behavior: smooth;
     background-color: #F4F0E8;
     color: #1F1813;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   /* Soft Japandi High-Contrast Scrollbar */
@@ -23,6 +25,15 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #5E3E29;
   }
+}
+
+/* Hide scrollbar utility for mobile filter tabs */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* CRISP HIGH-DEFINITION NEUMORPHIC SYSTEM (SOLID OPAQUE & HIGH CONTRAST) */

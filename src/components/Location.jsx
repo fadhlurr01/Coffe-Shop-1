@@ -94,7 +94,7 @@ export default function Location() {
               
               <iframe
                 title="Google Maps Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862243!2d107.5731168!3d-6.9034443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a0a38af932096!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7780975603774!2d107.6534571!3d-6.9171731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7e17ddb1bd7%3A0x63806fbfcf05d5d6!2sJl.%20Pamanukan%20No.12%2C%20Antapani%20Kulon%2C%20Kec.%20Antapani%2C%20Kota%20Bandung%2C%20Jawa%20Barat%2040291!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: 'contrast(1.05) saturate(0.95)' }}

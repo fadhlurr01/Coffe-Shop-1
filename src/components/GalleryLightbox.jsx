@@ -22,23 +22,23 @@ export default function GalleryLightbox({ currentIndex, onClose, onPrev, onNext 
       
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 z-50 p-3.5 rounded-full bg-[#FAF7F2] border border-[#E2D9C8] text-[#5C4E43] hover:text-[#1F1813] shadow-lg"
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 p-2.5 sm:p-3.5 rounded-full bg-[#FAF7F2] border border-[#E2D9C8] text-[#5C4E43] hover:text-[#1F1813] shadow-lg"
       >
-        <X className="w-6 h-6" />
+        <X className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
       <button
         onClick={onPrev}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-50 p-4 rounded-full bg-[#FAF7F2] border border-[#E2D9C8] text-[#5E3E29] hover:text-[#1F1813] shadow-lg"
+        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-50 p-2.5 sm:p-4 rounded-full bg-[#FAF7F2]/90 border border-[#E2D9C8] text-[#5E3E29] hover:text-[#1F1813] shadow-lg"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
       <button
         onClick={onNext}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-50 p-4 rounded-full bg-[#FAF7F2] border border-[#E2D9C8] text-[#5E3E29] hover:text-[#1F1813] shadow-lg"
+        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-50 p-2.5 sm:p-4 rounded-full bg-[#FAF7F2]/90 border border-[#E2D9C8] text-[#5E3E29] hover:text-[#1F1813] shadow-lg"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
       <div className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center">

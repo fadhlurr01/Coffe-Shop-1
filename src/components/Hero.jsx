@@ -1,67 +1,68 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowDown, Compass, Coffee } from 'lucide-react';
 import { SIGNATURE_ITEM } from '../data/coffeeData';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#F4F0E8]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#F4F0E8]">
       
       {/* ORGANIC SOFT WARM AMBIENT LIGHTING */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#A67844]/15 via-[#485942]/10 to-transparent rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* LEFT HERO CONTENT */}
           <div className="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
             
             {/* TAGLINE BADGE */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full neu-flat-sm text-[#5E3E29] text-xs font-mono tracking-widest uppercase font-bold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-flat-sm text-[#5E3E29] text-[11px] sm:text-xs font-mono tracking-widest uppercase font-bold">
               <span>☕ JAPANDI ARTISANAL COFFEE</span>
             </div>
 
             {/* HEADLINE MATCHING IMAGE 1 */}
-            <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-[#1F1813] leading-[1.08]">
+            <h1 className="font-heading text-4xl sm:text-6xl lg:text-8xl font-bold tracking-tight text-[#1F1813] leading-[1.1] sm:leading-[1.08]">
               COFFEE, CRAFTED <br />
               SLOWLY <span className="text-[#A67844] font-serif italic font-normal">&</span> <br />
               SERENELY.
             </h1>
 
             {/* SUBTITLE */}
-            <p className="text-base sm:text-xl text-[#3B312A] max-w-xl font-normal leading-relaxed">
+            <p className="text-sm sm:text-xl text-[#3B312A] max-w-xl font-normal leading-relaxed">
               A calm space to slow down, sip & connect. Hand-selected highland Arabica beans, masterfully roasted and brewed with Japanese-Scandinavian intention in Bandung.
             </p>
 
             {/* ACTION BUTTONS */}
-            <div className="flex flex-wrap items-center gap-4 pt-4 w-full sm:w-auto">
-              <a
-                href="#menu"
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-2 w-full sm:w-auto">
+              <Link
+                to="/menu"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#8C6234] hover:bg-[#5E3E29] text-white font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all text-center shadow-lg"
               >
                 EXPLORE OUR MENU
-              </a>
-              <a
-                href="#location"
+              </Link>
+              <Link
+                to="/location"
                 className="w-full sm:w-auto px-8 py-4 rounded-full neu-button text-[#1F1813] font-bold text-xs uppercase tracking-widest hover:text-[#5E3E29] flex items-center justify-center gap-2"
               >
                 <Compass className="w-4 h-4 text-[#5E3E29]" />
                 VISIT OUR HOUSE
-              </a>
+              </Link>
             </div>
 
             {/* BRAND VALUE METRICS */}
-            <div className="pt-8 grid grid-cols-3 gap-5 w-full max-w-lg border-t border-[#E2D9C8]">
-              <div className="p-4 rounded-2xl neu-flat-solid">
-                <span className="font-mono text-[10px] text-[#5C4E43] uppercase block font-bold">BEAN ORIGIN</span>
-                <span className="font-sans text-sm font-bold text-[#1F1813]">100% Arabica</span>
+            <div className="pt-6 grid grid-cols-3 gap-2 sm:gap-4 w-full max-w-lg border-t border-[#E2D9C8]">
+              <div className="p-3 sm:p-4 rounded-2xl neu-flat-solid text-center sm:text-left">
+                <span className="font-mono text-[9px] sm:text-[10px] text-[#5C4E43] uppercase block font-bold truncate">BEAN ORIGIN</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1F1813] truncate block">100% Arabica</span>
               </div>
-              <div className="p-4 rounded-2xl neu-flat-solid">
-                <span className="font-mono text-[10px] text-[#5C4E43] uppercase block font-bold">ELEVATION</span>
-                <span className="font-sans text-sm font-bold text-[#1F1813]">1600m Highland</span>
+              <div className="p-3 sm:p-4 rounded-2xl neu-flat-solid text-center sm:text-left">
+                <span className="font-mono text-[9px] sm:text-[10px] text-[#5C4E43] uppercase block font-bold truncate">ELEVATION</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1F1813] truncate block">1600m Highland</span>
               </div>
-              <div className="p-4 rounded-2xl neu-flat-solid">
-                <span className="font-mono text-[10px] text-[#5C4E43] uppercase block font-bold">ROAST</span>
-                <span className="font-sans text-sm font-bold text-[#8C6234]">Artisan Batch</span>
+              <div className="p-3 sm:p-4 rounded-2xl neu-flat-solid text-center sm:text-left">
+                <span className="font-mono text-[9px] sm:text-[10px] text-[#5C4E43] uppercase block font-bold truncate">ROAST</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#8C6234] truncate block">Artisan Batch</span>
               </div>
             </div>
 

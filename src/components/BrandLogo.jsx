@@ -5,55 +5,91 @@ export default function BrandLogo({ variant = 'light', size = 'normal', classNam
 
   return (
     <div className={`flex items-center gap-3.5 group cursor-pointer select-none ${className}`}>
-      {/* EMBLEM BADGE - Soft Rounded Neumorphic Box */}
+      {/* ARTISANAL EMBLEM BADGE - Minimalist Japandi Soft Squircle */}
       <div
         className={`relative flex items-center justify-center transition-all duration-300 transform group-hover:scale-105 ${
           size === 'sm' ? 'w-9 h-9 rounded-xl' : size === 'lg' ? 'w-12 h-12 rounded-2xl' : 'w-11 h-11 rounded-2xl'
         } ${
           isDark
-            ? 'bg-[#231C15] border border-[#3B2F25] shadow-inner'
-            : 'bg-[#F4F0E8] neu-flat-sm border border-[#ECE5D7]'
+            ? 'bg-gradient-to-br from-[#231C15] via-[#1A140E] to-[#120D08] border border-[#3B2F25] shadow-[0_4px_16px_rgba(0,0,0,0.4)]'
+            : 'bg-gradient-to-br from-[#FAF7F2] via-[#F4F0E8] to-[#EAE3D2] border border-[#E4DBCB] shadow-[4px_6px_16px_rgba(184,170,150,0.35)]'
         }`}
       >
-        {/* Minimalist Coffee Icon with 3 Steam Lines */}
+        {/* Subtle Ambient Glow Accent */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#A67844]/15 via-transparent to-[#485942]/10 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+
+        {/* ULTRA-MINIMALIST JAPANDI SVG EMBLEM MARK */}
         <svg
           viewBox="0 0 40 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={`${size === 'sm' ? 'w-5 h-5' : size === 'lg' ? 'w-7 h-7' : 'w-6 h-6'} relative z-10`}
         >
-          {/* 3 Steam Vertical Lines */}
-          <line x1="16" y1="10" x2="16" y2="13" stroke={isDark ? '#C19A6B' : '#5E3E29'} strokeWidth="1.8" strokeLinecap="round" />
-          <line x1="20" y1="9" x2="20" y2="13" stroke={isDark ? '#C19A6B' : '#5E3E29'} strokeWidth="1.8" strokeLinecap="round" />
-          <line x1="24" y1="10" x2="24" y2="13" stroke={isDark ? '#C19A6B' : '#5E3E29'} strokeWidth="1.8" strokeLinecap="round" />
+          {/* Zen Aesthetic Circle Ring */}
+          <circle
+            cx="20"
+            cy="20"
+            r="16"
+            stroke={isDark ? '#C19A6B' : '#A67844'}
+            strokeWidth="1.2"
+            strokeDasharray="68 20"
+            className="opacity-60 group-hover:rotate-90 transition-transform duration-700 ease-out"
+          />
 
-          {/* Coffee Cup Outline */}
+          {/* Minimalist Coffee Cup Geometry */}
           <path
-            d="M12 16H28V21C28 24.3137 25.3137 27 22 27H18C14.6863 27 12 24.3137 12 21V16Z"
+            d="M13 16C13 14.8954 13.8954 14 15 14H25C26.1046 14 27 14.8954 27 16V20.5C27 24.0899 24.0899 27 20.5 27H19.5C15.9101 27 13 24.0899 13 20.5V16Z"
             stroke={isDark ? '#FAF7F2' : '#1F1813'}
-            strokeWidth="2"
+            strokeWidth="1.6"
+            strokeLinecap="round"
             strokeLinejoin="round"
           />
 
-          {/* Cup Handle */}
+          {/* Sleek Curved Cup Handle */}
           <path
-            d="M28 18H30.5C31.8807 18 33 19.1193 33 20.5C33 21.8807 31.8807 23 30.5 23H28"
-            stroke={isDark ? '#FAF7F2' : '#1F1813'}
-            strokeWidth="2"
+            d="M27 17.5H28.5C29.8807 17.5 31 18.6193 31 20C31 21.3807 29.8807 22.5 28.5 22.5H27"
+            stroke={isDark ? '#C19A6B' : '#A67844'}
+            strokeWidth="1.5"
             strokeLinecap="round"
           />
+
+          {/* Elegant Minimalist Steam Arcs */}
+          <path
+            d="M17 11C17 11 17.8 9.8 17.8 8.8"
+            stroke={isDark ? '#C19A6B' : '#5E3E29'}
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M20 10.5C20 10.5 20.8 9.3 20.8 8.3"
+            stroke={isDark ? '#E5C9A5' : '#A67844'}
+            strokeWidth="1.4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M23 11C23 11 23.8 9.8 23.8 8.8"
+            stroke={isDark ? '#C19A6B' : '#5E3E29'}
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+
+          {/* Coffee Bean Inner Seal Dot */}
+          <circle cx="20" cy="20.5" r="1.5" fill={isDark ? '#C19A6B' : '#A67844'} />
         </svg>
+
+        {/* Small Golden Accent Dot */}
+        <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#A67844] border border-[#F4F0E8] shadow-sm"></span>
       </div>
 
-      {/* BRAND NAME & TAGLINE */}
+      {/* BRAND NAME & LUXURY TYPOGRAPHY */}
       <div className="flex flex-col text-left">
         <div className="flex items-baseline leading-none">
           <span
             className={`font-heading font-bold tracking-tight ${
               size === 'sm' ? 'text-lg' : size === 'lg' ? 'text-2xl sm:text-3xl' : 'text-xl sm:text-2xl'
             } ${
-              isDark ? 'text-[#FAF7F2]' : 'text-[#1F1813]'
-            }`}
+              isDark ? 'text-[#FAF7F2] group-hover:text-[#C19A6B]' : 'text-[#1F1813] group-hover:text-[#5E3E29]'
+            } transition-colors duration-200`}
           >
             PureBrew
           </span>
@@ -68,15 +104,19 @@ export default function BrandLogo({ variant = 'light', size = 'normal', classNam
           </span>
         </div>
 
-        <span
-          className={`font-mono text-[9px] tracking-[0.2em] font-bold uppercase mt-1 ${
-            isDark ? 'text-[#C19A6B]' : 'text-[#A67844]'
-          }`}
-        >
-          JAPANDI CRAFT COFFEE
-        </span>
+        <div className="flex items-center gap-1.5 mt-1">
+          <span
+            className={`font-mono text-[9px] tracking-[0.22em] font-bold uppercase ${
+              isDark ? 'text-[#C19A6B]' : 'text-[#A67844]'
+            }`}
+          >
+            JAPANDI CRAFT COFFEE
+          </span>
+          <span className={`text-[8px] ${isDark ? 'text-[#8C7B6C]' : 'text-[#A67844]'}`}>✦</span>
+        </div>
       </div>
     </div>
   );
 }
+
 

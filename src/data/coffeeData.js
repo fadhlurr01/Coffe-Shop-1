@@ -300,7 +300,7 @@ export const BRAND_STORY = {
 
 export const LOCATION_DATA = {
   name: "PureBrew.co",
-  address: "Jl. Riau No. 88, Bandung, West Java",
+  address: "Jl. Pamanukan No.12, Antapani Kulon, Kec. Antapani, Kota Bandung, Jawa Barat 40291",
   status: "OPEN NOW",
   hours: [
     { days: "Mon – Fri", time: "08:00 — 22:00" },
@@ -312,6 +312,6 @@ export const LOCATION_DATA = {
     whatsapp: "https://wa.me/6281234567890",
     instagram: "https://instagram.com",
     tiktok: "https://tiktok.com",
-    maps: "https://maps.google.com/?q=Jl.+Riau+No.+88+Bandung"
+    maps: "https://maps.google.com/?q=Jl.+Pamanukan+No.12+Antapani+Kulon+Bandung"
   }
 };
