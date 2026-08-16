@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 
 export default function Layout() {
   const [soundEnabled, setSoundEnabled] = useState(false);
+  const location = useLocation();
   const audioRef = useRef(null);
   const audioCtxRef = useRef(null);
   const noiseNodeRef = useRef(null);
@@ -99,7 +100,7 @@ export default function Layout() {
       <ScrollToTop />
       <Navbar soundEnabled={soundEnabled} setSoundEnabled={setSoundEnabled} />
 
-      <main className="flex-grow pt-20">
+      <main key={location.pathname} className="flex-grow pt-20 animate-page-enter">
         <Outlet />
       </main>
 
